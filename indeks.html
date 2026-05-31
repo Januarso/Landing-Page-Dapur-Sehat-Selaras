@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dapur Sehat Selaras | Catering Sehat Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
+        
+        :root {
+            --primary-green: #166534;
+        }
+        
+        .tail-container {
+            font-family: 'Inter', sans-serif;
+        }
+        .heading-font {
+            font-family: 'Playfair Display', sans-serif;
+        }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2070');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="tail-container bg-gray-50 text-gray-800">
+
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-emerald-700 rounded-2xl flex items-center justify-center text-white font-bold text-2xl">🍲</div>
+                <div>
+                    <h1 class="text-2xl font-bold heading-font text-emerald-800">Dapur Sehat</h1>
+                    <p class="text-[10px] text-emerald-600 -mt-1">Selaras</p>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#about" class="hover:text-emerald-700 transition">Tentang Kami</a>
+                <a href="#paket" class="hover:text-emerald-700 transition">Paket Menu</a>
+                <a href="#testimoni" class="hover:text-emerald-700 transition">Testimoni</a>
+                <a href="#faq" class="hover:text-emerald-700 transition">FAQ</a>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <button onclick="toggleCart()" class="relative p-2 hover:bg-gray-100 rounded-xl transition">
+                    <i class="fa-solid fa-cart-shopping text-xl"></i>
+                    <span id="cart-count" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                </button>
+                <button onclick="pesanSekarang()" 
+                        class="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-3 rounded-2xl font-semibold text-sm transition flex items-center gap-2">
+                    <i class="fa-solid fa-whatsapp"></i>
+                    Pesan Sekarang
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero-bg h-screen flex items-center text-white">
+        <div class="max-w-7xl mx-auto px-6 pt-20">
+            <div class="max-w-2xl">
+                <h2 class="text-5xl md:text-6xl font-bold heading-font leading-tight mb-6">
+                    Real Food.<br>
+                    <span class="text-emerald-300">Hidup Sehat.</span>
+                </h2>
+                <p class="text-lg md:text-xl mb-8 text-gray-200">
+                    Catering rumahan premium untuk diet, cutting, dan bulking. 
+                    Fresh, sehat, dan dibuat dengan penuh kasih sayang.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="pesanSekarang()" 
+                            class="bg-white text-emerald-800 hover:bg-emerald-50 px-8 py-4 rounded-3xl font-semibold text-lg flex items-center gap-3 transition">
+                        <i class="fa-solid fa-whatsapp"></i>
+                        Pesan via WhatsApp
+                    </button>
+                    <a href="#paket" 
+                       class="border border-white hover:bg-white/10 px-8 py-4 rounded-3xl font-medium text-lg transition">
+                        Lihat Paket
+                    </a>
+                </div>
+                
+                <div class="mt-12 flex items-center gap-8 text-sm">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-check text-emerald-400"></i>
+                        <span>Fresh Daily</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-check text-emerald-400"></i>
+                        <span>Low Sugar</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-check text-emerald-400"></i>
+                        <span>High Protein</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a9c?q=80&w=2070" 
+                         class="rounded-3xl shadow-2xl" alt="Dapur Sehat Selaras">
+                </div>
+                <div class="space-y-6">
+                    <h2 class="text-4xl font-bold heading-font text-emerald-800">Dapur Sehat Selaras</h2>
+                    <p class="text-lg text-gray-600">
+                        Kami percaya bahwa makanan sehat bukan berarti makanan yang hambar. 
+                        Di Dapur Sehat Selaras, setiap menu dibuat dengan bahan-bahan terbaik, 
+                        diolah dengan resep yang teruji, dan disajikan dengan cinta.
+                    </p>
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div>
+                            <div class="text-3xl font-bold text-emerald-700">500+</div>
+                            <div class="text-sm text-gray-500">Pelanggan Puas</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-emerald-700">98%</div>
+                            <div class="text-sm text-gray-500">Repeat Order</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-emerald-700">4.9</div>
+                            <div class="text-sm text-gray-500">Rating</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAKET MENU -->
+    <section id="paket" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold heading-font text-emerald-800">Paket Menu Kami</h2>
+                <p class="text-gray-600 mt-3">Pilih sesuai kebutuhan kesehatan Anda</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Paket 1 -->
+                <div class="bg-white rounded-3xl overflow-hidden card-hover border border-emerald-100">
+                    <div class="h-52 bg-cover" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c')"></div>
+                    <div class="p-8">
+                        <h3 class="font-semibold text-2xl mb-2">Paket Diet Lean</h3>
+                        <p class="text-emerald-600 font-medium">Turunkan Berat Badan Sehat</p>
+                        <p class="text-gray-600 mt-4 text-sm">High protein • Low carb • Sayur segar • Dada ayam fillet & ikan</p>
+                        <div class="mt-6 flex justify-between items-end">
+                            <div>
+                                <span class="text-3xl font-bold">Rp 185.000</span>
+                                <span class="text-sm text-gray-500">/hari</span>
+                            </div>
+                            <button onclick="pesanPaket('Paket Diet Lean')" 
+                                    class="bg-emerald-700 text-white px-6 py-3 rounded-2xl text-sm font-semibold hover:bg-emerald-800 transition">
+                                Pilih Paket
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paket 2 -->
+                <div class="bg-white rounded-3xl overflow-hidden card-hover border-2 border-red-500 relative">
+                    <div class="absolute top-4 right-4 bg-red-500 text-white text-xs font-bold px-4 py-1 rounded-full">REKOMENDASI</div>
+                    <div class="h-52 bg-cover" style="background-image: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061')"></div>
+                    <div class="p-8">
+                        <h3 class="font-semibold text-2xl mb-2">Paket Bulking Muscle</h3>
+                        <p class="text-emerald-600 font-medium">Naikkan Massa Otot</p>
+                        <p class="text-gray-600 mt-4 text-sm">High calorie • High protein • Telur + dada ayam + brown rice</p>
+                        <div class="mt-6 flex justify-between items-end">
+                            <div>
+                                <span class="text-3xl font-bold">Rp 215.000</span>
+                                <span class="text-sm text-gray-500">/hari</span>
+                            </div>
+                            <button onclick="pesanPaket('Paket Bulking Muscle')" 
+                                    class="bg-emerald-700 text-white px-6 py-3 rounded-2xl text-sm font-semibold hover:bg-emerald-800 transition">
+                                Pilih Paket
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paket 3 -->
+                <div class="bg-white rounded-3xl overflow-hidden card-hover border border-emerald-100">
+                    <div class="h-52 bg-cover" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d')"></div>
+                    <div class="p-8">
+                        <h3 class="font-semibold text-2xl mb-2">Paket Ibu Menyusui</h3>
+                        <p class="text-emerald-600 font-medium">Nutrisi Lengkap</p>
+                        <p class="text-gray-600 mt-4 text-sm">Makanan bergizi untuk ASI berkualitas • Kaya protein & lemak sehat</p>
+                        <div class="mt-6 flex justify-between items-end">
+                            <div>
+                                <span class="text-3xl font-bold">Rp 175.000</span>
+                                <span class="text-sm text-gray-500">/hari</span>
+                            </div>
+                            <button onclick="pesanPaket('Paket Ibu Menyusui')" 
+                                    class="bg-emerald-700 text-white px-6 py-3 rounded-2xl text-sm font-semibold hover:bg-emerald-800 transition">
+                                Pilih Paket
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONI -->
+    <section id="testimoni" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl font-bold heading-font text-center text-emerald-800 mb-12">Apa Kata Mereka</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-3xl">
+                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+                    <p class="italic">"Berat badan saya turun 6kg dalam 1 bulan. Rasanya enak banget, nggak bosan."</p>
+                    <div class="mt-6 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-300 rounded-full"></div>
+                        <div>
+                            <div class="font-semibold">Rina Pratiwi</div>
+                            <div class="text-sm text-gray-500">Jakarta Selatan</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-3xl">
+                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+                    <p class="italic">"Porsi pas, otot naik, lemak turun. Best catering sehat yang pernah saya coba!"</p>
+                    <div class="mt-6 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-300 rounded-full"></div>
+                        <div>
+                            <div class="font-semibold">Fajar Nugroho</div>
+                            <div class="text-sm text-gray-500">Personal Trainer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-3xl">
+                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+                    <p class="italic">"ASI saya semakin banyak setelah konsumsi paket ibu menyusui. Thank you!"</p>
+                    <div class="mt-6 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gray-300 rounded-full"></div>
+                        <div>
+                            <div class="font-semibold">Sinta Dewi</div>
+                            <div class="text-sm text-gray-500">Ibu Menyusui</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="bg-emerald-800 py-20 text-white text-center">
+        <div class="max-w-2xl mx-auto px-6">
+            <h2 class="text-4xl font-bold heading-font mb-6">Siap mulai hidup lebih sehat?</h2>
+            <p class="text-emerald-100 mb-8">Hubungi kami sekarang dan dapatkan konsultasi menu gratis</p>
+            <button onclick="pesanSekarang()" 
+                    class="bg-white text-emerald-800 hover:bg-emerald-50 text-xl font-semibold px-12 py-5 rounded-3xl inline-flex items-center gap-3 transition">
+                <i class="fa-solid fa-whatsapp text-2xl"></i>
+                Chat Admin via WhatsApp
+            </button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-gray-400 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-10">
+                <div>
+                    <div class="flex items-center gap-3 text-white mb-6">
+                        <div class="w-9 h-9 bg-emerald-600 rounded-2xl flex items-center justify-center text-2xl">🍲</div>
+                        <h3 class="text-2xl font-bold heading-font">Dapur Sehat Selaras</h3>
+                    </div>
+                    <p class="text-sm">Catering sehat premium untuk gaya hidup yang lebih baik.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Kontak</h4>
+                    <p class="text-sm">WA: <a href="https://wa.me/6281234567890" class="hover:text-white">0812-3456-7890</a></p>
+                    <p class="text-sm">Email: hello@dapursehatselaras.co.id</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Alamat</h4>
+                    <p class="text-sm">Jl. Raya Pondok Indah No. 45<br>Jakarta Selatan</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white mb-4">Ikuti Kami</h4>
+                    <div class="flex gap-4 text-2xl">
+                        <i class="fa-brands fa-instagram hover:text-white cursor-pointer"></i>
+                        <i class="fa-brands fa-tiktok hover:text-white cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-xs mt-16 pt-8 border-t border-gray-800">
+                © 2026 Dapur Sehat Selaras. All
